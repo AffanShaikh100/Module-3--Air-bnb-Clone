@@ -1,0 +1,433 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+}
+
+
+/* NAVBAR DESIGN */
+header{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 100vw;
+    padding-bottom: 30px;
+    position: sticky;
+    top: 0px;
+}
+/* NAVBARDESIGN PART1 */
+.navigationpart1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px 40px;
+    align-items: center;
+}
+.navigationpart1>div:first-child{
+    margin-right: 30px;
+}
+.navheadings{
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+}
+.navheadings>div{
+    margin-right: 20px;
+}
+.navheadings>p{
+    margin-left: 30px;
+}
+.navuserbar{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 30px;
+}
+.underline{
+    width: 15px;
+    border-bottom: 2px solid white;
+    border-radius: 1px;
+    color: black;
+    margin-left: 43px;
+    margin-top: 5px;
+}
+.navuserbar>img{
+    margin-left: 10px;
+}
+.navuserbar>div{
+    background-color: white;
+    border-radius: 40px;
+    padding: 9px 8px;
+    margin-left: 10px;
+}
+.navuserbar>div>img{
+    padding-right: 5px;
+}
+
+
+/* NAVBAR DESIGN PART2 */
+.navigationpart2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 14vw;
+    background-color: white;
+    color: black;
+    width: 65vw;
+    padding: 7px;
+    margin-top: 20px;
+    border-radius: 40px;
+}
+.navigationpart2>div{
+    margin-right: 6.5vw;
+}
+.navigationpart2>div>p{
+    font-size: 14px;
+    font-weight: 600;
+}
+.navsubtext{
+    color: var(--gray-500, #6B7280); 
+    font-size: 16px;
+    font-weight: 400;
+}
+.navigationpart2>div:first-child{
+    margin-left: 15px;
+}
+.navigationpart2>span{
+    height: 32px;
+    border-right: 2px solid var(--gray-500, #E5E7EB);
+    margin-right: 30px;
+
+}
+
+/* HEROSECTION STARTS FROM HERE */
+.section1{
+    background-color: black;
+    padding-bottom: 70px;
+}
+.herosection{
+    width: 90vw;
+    color: white;
+    background-color: aqua;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-image: url(./Image/herosection.png);
+    background-position: center;
+    background-size: cover;
+    margin-inline: auto;
+    border-radius: 8px;
+}
+.herosection>h1{
+    text-align: center;
+    font-size: 48px;
+    padding-top: 40%;
+    font-weight: 500;
+}
+.herosection>button{
+    text-align: center;
+    border: none;
+    color: rgb(144,28,137);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 1px 2px 0px rgba(31, 41, 55, 0.08);
+    border-radius: 40px;
+    margin-left: 45%;
+
+}
+
+/* CRAD SECTION STARTS FOM HERE */
+.cardsection{
+    width: 90vw;
+    margin-inline: auto;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+.cardsection>h1{
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.cardsection>div{
+    min-width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    width: 21vw;
+    border-radius: 8px;
+}
+.cardgap{
+    margin-right: 26px;
+}
+.card>img{
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+}
+.card1{
+    background-color: #CC2D4A;
+}
+.card2{
+    background-color: #BC1A6E;
+}
+.card3{
+    background-color: #DE3151;
+}
+.card4{
+    background-color: #D93B30;
+}
+.card>div{
+   padding: 15px;
+   padding-bottom: 100px;
+}
+.card>div>h2 {
+    font-size: 36px;
+    color: white;
+    font-weight: 500;
+}
+.card>div>p{
+    font-size: 18px;
+    font-weight: 300;
+    color: white;
+}
+
+
+/* EXPERIENCES SECTIO STARTS FROM HERE */
+.experinecesection{
+    width: 90vw;
+    margin-inline: auto;
+    margin-bottom: 50px;
+}
+.experinecesection>div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.experiencecards{
+    width: 44vw;
+    height: 90vh;
+    border-radius: 8px;
+}
+.experiencecards>h3{
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: white;
+    margin-top: 50px;
+    margin-left: 80px;
+}
+.experiencecards>button{
+    border: none;
+    color: #374151;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px;
+    margin-left: 80px;
+    box-shadow: 0px 1px 2px 0px rgba(31, 41, 55, 0.08);
+}
+.discovercard1{
+    background-image: url(./Image/disover1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.discovercard2{
+    background-image: url(./Image/discover\ 2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* GIFT CARD SECTION STARTS HERE */
+.section4{
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+.giftcardsection{
+    display: flex;
+    width: 90vw;
+    margin-inline: auto;
+    justify-content: space-between;
+}
+.giftcard>h1{
+    font-size: 48px;
+    font-weight: 500;
+    margin-top: 80px;
+}
+.giftcard2{
+    width: 60vw;
+}
+.giftcard2>img{
+    width: 100%;
+}
+.giftcard>button{
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 20px 0px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px 0px rgba(31, 41, 55, 0.08);
+}
+
+/* HOST QUESTION SECTION STARTS HERE */
+.hostsection{
+    width: 90vw;
+    height: 100vh;
+    margin-inline: auto;
+    margin-bottom: 50px;
+    background-image: url(./Image/hostingsection.png);
+    background-repeat: no-repeat;
+   background-position: 50% 60% ;
+    background-size:cover;
+    border-radius: 8px;
+}
+.hostsection>h1{
+    font-size: 96px;
+    font-weight: 500;
+    color: white;
+    margin-left: 40px;
+    padding-top: 60px;
+}
+.hostsection>button{
+    border: none;
+    box-shadow: 0px 1px 2px 0px rgba(31, 41, 55, 0.08);
+    color: #374151;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-top: 80px;
+    margin-left: 40px;
+}
+
+
+
+/* PLACE SECTION STARTS FROM HERE */
+.placenamesection{
+    width: 90vw;
+    margin-inline: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.placetype{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+.placelocation{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+}
+.placenamesection>h3{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.placetype>p{
+    margin-right: 50px;
+    padding-bottom: 10px;
+}
+.placetypedark{
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+}
+.placetypelight{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    color: #6B7280;
+}
+.placetype{
+    border-bottom: 1px solid #F3F4F6;
+}
+.placelocation>div{
+    margin: 40px 0px;
+    width: 20vw;
+    margin-right: 2vw;
+}
+
+
+.placelocation>div>p{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+}
+.placename{
+    font-size: 14px;
+    font-weight: 400;
+    color: #6B7280;
+}
+
+
+/* FOOTER STARTS FROM HERE */
+footer{
+    background-color: #F9FAFB;
+}
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 85vw;
+    margin-inline: auto;
+    padding: 50px;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.footer>div>h4{
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+.footer>div>p{
+    font-size: 14px;
+    color:#4B5563;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+
+.footer2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85vw;
+    justify-content: space-between;
+    background-color: #F9FAFB;
+    padding: 50px;
+}
+.sublet1{
+    display: flex;
+    align-items: center;
+}
+.sublet1>img{
+    margin-inline: 10px;
+}
+.sublet2{
+    display: flex;
+    align-items: center;
+}
+.sublet2>div{
+    display: flex;
+    align-items: center;
+    margin-inline: 10px;
+}
+.sublet2>img{
+    margin-left: 10px;
+}
+.sublet22{
+    padding-right: 30px;
+}
