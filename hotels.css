@@ -1,0 +1,314 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+}
+
+/* NAVBAR DESIGN STARTS HERE */
+
+header{
+    position: sticky;
+    top: 0px;
+    border-bottom: 1px solid var(--gray-500, #E5E7EB);
+    padding-bottom: 20px;
+    background-color: white;
+}
+nav{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: sticky;
+    top: 0px;
+}
+.navpart2{
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--gray-200, #E5E7EB);
+    box-shadow: 0px 4px 6px 0px rgba(31, 41, 55, 0.10), 0px 2px 4px 0px rgba(31, 41, 55, 0.06);
+    padding: 7px;
+    border-radius: 40px;
+    margin-inline: auto;
+}
+.navpart2>span{
+    height: 32px;
+    border-right: 2px solid var(--gray-500, #E5E7EB);
+    margin-right: 15px;
+}
+nav>div>input:focus{
+    outline: none;
+}
+nav>div>input{
+    border: none;
+    width: 80px;
+    margin-inline: 5px;
+    padding: 7px;
+}
+.navpart3{
+    display: flex;
+    align-items: center;
+    margin-right: 70px;
+}
+.navpart3>div{
+    border: 1px solid var(--gray-200, #E5E7EB);
+    border-radius: 40px;
+    padding: 9px 8px;
+    margin-left: 10px;
+}
+.navpart3>img{
+    margin-inline: 10px;
+}
+.navpart3>div>img{
+    margin-inline: 3px;
+}
+.navpart3>p{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* FILTER BUTTON CSS STARTS FROM HERE */
+
+.buttonbar{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-inline: 11px;
+}
+.buttonbar>button{
+    text-align: center;
+    border: none;
+    padding: 14px;
+    border: 1px solid var(--gray-200, #E5E7EB);
+    background: var(--white, #FFF);
+    box-shadow: 0px 1px 2px 0px rgba(31, 41, 55, 0.08);
+    margin-inline: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 30px;
+}
+.smallbtn{
+    width: 65px;
+    border-radius: 1px;
+}
+.buttonbar>span{
+    height: 32px;
+    border-right: 2px solid var(--gray-500, #E5E7EB);
+    margin-inline: 15px ;
+}
+.btnwithicon{
+    display: flex;
+    align-items: center;
+}
+
+/* HOTEL LIST CSS STARTS FROM HERE */
+
+#hotel-list{
+   margin: 40px;
+}
+/* #hotel-list>h3{
+    margin: 30px 20px;
+    color: var(--gray-500, #6B7280);
+    font-size: 16px;
+    font-weight: 400;
+} */
+.hotel{
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top: 2px solid  #E5E7EB;
+}
+.hotelthumbnail>img{
+  border-radius: 12px;
+  width: 22vw;
+  height: 32vh;
+  margin-left: 10px;
+}
+.hoteldetails{
+    width: 38vw;
+    margin-left: 30px;
+}
+.hotel-part1{
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+.hotel-part1>div>h1{
+    color: var(--gray-700, #374151);
+    font-size: 20px;
+    font-weight: 500;
+    margin: 6px 0px;
+}
+.hotel-part1>div>img{
+    /* margin-left: 13vw; */
+}
+.subhotelheading{
+    color: var(--gray-500, #6B7280);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.roomdetails>p{
+    margin-top: 10px;
+    color: var(--gray-500, #6B7280);
+    font-size: 14px;
+    font-weight: 400;
+}
+.roomdetails>p>span{
+    margin-inline: 5px;
+}
+.hotel-ratingdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ratings{
+    display: flex;
+    align-items: center;
+    color: var(--gray-700, #374151);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+.ratings>img{
+    margin-inline: 10px;
+}
+.price{
+    color: var(--gray-700, #374151);
+    font-size: 18px;
+    font-weight: 500;
+}
+.price>span{
+    color: var(--gray-700, #374151);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+/* PLACE SECTION STARTS FROM HERE */
+.placenamesection{
+    width: 90vw;
+    margin-inline: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.placetype{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+.placelocation{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+}
+.placenamesection>h3{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.placetype>p{
+    margin-right: 50px;
+    padding-bottom: 10px;
+}
+.placetypedark{
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+}
+.placetypelight{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    color: #6B7280;
+}
+.placetype{
+    border-bottom: 1px solid #F3F4F6;
+}
+.placelocation>div{
+    margin: 40px 0px;
+    width: 20vw;
+    margin-right: 2vw;
+}
+
+
+.placelocation>div>p{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+}
+.placename{
+    font-size: 14px;
+    font-weight: 400;
+    color: #6B7280;
+}
+
+
+
+/* FOOTER STARTS FROM HERE */
+footer{
+    background-color: #F9FAFB;
+}
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80vw;
+    margin-left:50px;
+    padding: 50px 0px;
+}
+
+.footer>div>h4{
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+.footer>div>p{
+    font-size: 14px;
+    color:#4B5563;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+
+.footer2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    margin-left: 40px;
+    justify-content: space-between;
+    background-color: #F9FAFB;
+    padding: 40px 0px;
+    border-top: 2px solid #E5E7EB;
+}
+.sublet1{
+    display: flex;
+    align-items: center;
+}
+.sublet1>img{
+    margin-inline: 10px;
+}
+.sublet2{
+    display: flex;
+    align-items: center;
+}
+.sublet2>div{
+    display: flex;
+    align-items: center;
+}
+.sublet2>img{
+    margin-left: 10px;
+}
+.sublet22{
+    margin-right: 30px;
+}

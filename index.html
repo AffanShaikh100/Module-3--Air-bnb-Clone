@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>airbnb clone</title>
+    <title>Airbnb Homepage</title>
     <!-- Linking to CSS FILE -->
     <link rel="stylesheet" href="./style.css">
     <!-- ADDING FONT FAMILY INTER -->
@@ -40,24 +40,24 @@
             <div class="navigationpart2">
                   <div class="navsearch">
                        <p>Location</p>
-                       <p class="navsubtext">Where are you going?</p>
+                       <a href="./hotels.html"><input id="roomlocation" type="text" placeholder="Where are you going?"> </a>
                   </div>
                   <span></span>
                   <div class="navsearch">
                       <p>Check in</p>
-                      <p class="navsubtext">Add dates</p>
+                      <input id="mindate" type="date" placeholder="yyyy-mm-dd">                      
                   </div>
                   <span></span>
                   <div class="navsearch">
                       <p>Check out</p>
-                      <p class="navsubtext">Add dates</p>
+                      <input id="maxdate" type="date" placeholder="yyyy-mm-dd"> 
                   </div>
                   <span></span>
-                  <div>
+                  <div class="navsearch">
                     <p>Guests</p>
-                    <p class="navsubtext">Add guests</p>
-                </div>
-                    <img src="./Image/Icon Button.svg">
+                    <input id="guestnos" type="number" min="1" placeholder="Add guests"> 
+                  </div>
+                    <a href="./hotels.html"><img src="./Image/Icon Button.svg"></a> 
             </div>
         </nav>
     </header>
