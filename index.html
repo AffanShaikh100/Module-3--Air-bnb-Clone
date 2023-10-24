@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="fixedmindate()">
     <header>
         <nav>
             <!-- NAVBAR PART 1 -->
@@ -40,24 +40,24 @@
             <div class="navigationpart2">
                   <div class="navsearch">
                        <p>Location</p>
-                       <a href="./hotels.html"><input id="roomlocation" type="text" placeholder="Where are you going?"> </a>
+                       <input id="roomlocation" type="text" placeholder="Where are you going?">
                   </div>
                   <span></span>
                   <div class="navsearch">
                       <p>Check in</p>
-                      <input id="mindate" type="date" placeholder="yyyy-mm-dd">                      
+                      <input class="dateinput" id="mindate" type="date" placeholder="yyyy-mm-dd">                      
                   </div>
                   <span></span>
                   <div class="navsearch">
                       <p>Check out</p>
-                      <input id="maxdate" type="date" placeholder="yyyy-mm-dd"> 
+                      <input class="dateinput" id="maxdate" type="date" placeholder="yyyy-mm-dd"> 
                   </div>
                   <span></span>
                   <div class="navsearch">
                     <p>Guests</p>
                     <input id="guestnos" type="number" min="1" placeholder="Add guests"> 
                   </div>
-                    <a href="./hotels.html"><img src="./Image/Icon Button.svg"></a> 
+                    <a href="./hotels.html"><img onclick="getinputdetails()" src="./Image/Icon Button.svg"></a> 
             </div>
         </nav>
     </header>

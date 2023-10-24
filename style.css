@@ -33,6 +33,7 @@ header{
     display: flex;
     font-size: 16px;
     font-weight: 400;
+    margin-left: 20px;
 }
 .navheadings>div{
     margin-right: 20px;
@@ -74,7 +75,7 @@ header{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: 16vw;
+    margin-left: 17vw;
     background-color: white;
     color: black;
     width: 59vw;
@@ -97,9 +98,13 @@ header{
     border-right: 2px solid var(--gray-500, #E5E7EB);
     margin-right: 27px;
 }
-    /* Hiding the border of input tags */
+
+  /* Hiding the border of input tags */
 .navsearch>input{
     border: none;
+}
+.dateinput{
+    color: var(--gray-500, #6B7280)
 }
 .navsearch>a>input{
     border: none;

@@ -11,21 +11,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="hoteldataload(), fixedminhotelpagedate(), datedisplay()">
     <header>
 
         <nav>
             <div>
                 <img src="./Hotel image/logo.svg" alt="Logo Loading">
             </div>
+
             <div class="navpart2">
-                <input id="location" type="text" value="location">
+                <input id="mainhotel-location" type="text" value="location">
                 <span></span>
-                <input type="text" value="date">
+
+                <div onclick="datedivpopup()" class="navdatesdiv">
+                    <div id="hiddendatediv">
+                        <input type="date" id="checkindate">
+                        <input type="date" id="checkoutdate">
+                    </div>
+                    <input type="text" id="bookingdays" value="Booked">
+                </div>
                 <span></span>
-                <input type="text" value="Guest">
-                <img src="./Hotel image/Icon Button.svg">
+
+                <input id="mainguestnos" type="number" min="1" placeholder="Add">
+                <img onclick="getsearchhotels()" src="./Hotel image/Icon Button.svg">
             </div>
+
             <div class="navpart3">
                 <p>Become a Host</p>
                 <img src="./Hotel image/globe (1).svg">
