@@ -45,11 +45,13 @@
                   <span></span>
                   <div class="navsearch">
                       <p>Check in</p>
+                      <input id="homedatetext1" onclick="showhomedateinput()" class="homedateinput" type="text" placeholder="Add dates">
                       <input class="dateinput" id="mindate" type="date" placeholder="yyyy-mm-dd">                      
                   </div>
                   <span></span>
                   <div class="navsearch">
                       <p>Check out</p>
+                      <input  id="homedatetext2"  onclick="showhomedateinput()"  class="homedateinput" type="text" placeholder="Add dates">
                       <input class="dateinput" id="maxdate" type="date" placeholder="yyyy-mm-dd"> 
                   </div>
                   <span></span>
@@ -57,8 +59,8 @@
                     <p>Guests</p>
                     <input id="guestnos" type="number" min="1" placeholder="Add guests"> 
                   </div>
-                    <a href="./hotels.html"><img onclick="getinputdetails()" src="./Image/Icon Button.svg"></a> 
-            </div>
+                    <a id="homeanchortag"><img id="homepagelink" onclick="getinputdetails()" src="./Image/Icon Button.svg"></a>
+                </div>
         </nav>
     </header>
     <main>

@@ -1,6 +1,15 @@
 // REFERENCE TO ADD HOTEL DATA TO DIV
 let hoteldiv = document.getElementById("hotel-list");
 
+// GETTING THE MAIN HOTEL ARRAY FROM API 
+let actualdata = [];
+
+// VARIABLES FOR GOOGLE MAPS
+let centerhotel=0;
+let centerlat=0;
+let centerlong=0;
+let map="";
+
 // GETTING REFERENCE FROM INPUT VALUES
 let mindatehome = document.getElementById("mindate");
 let maxdatehome = document.getElementById("maxdate");
@@ -12,6 +21,15 @@ let checkinnew = document.getElementById("checkindate");
 let checkoutnew = document.getElementById("checkoutdate");
 let guestnew = document.getElementById("mainguestnos");
 
+// FUNCTION TO SHOW DATE INPUT AT HOME PAGE
+function showhomedateinput(){
+   let input1 = document.getElementById("homedatetext1");
+   let input2 = document.getElementById("homedatetext2");
+   input1.style.display="none";
+   input2.style.display="none";
+   mindatehome.style.display="block";
+   maxdatehome.style.display="block";
+}
 
 // SETTING UP MINIMUM VALUE IN DATE INPUT OF HOME & HOTEL PAGE HTML
 
@@ -39,16 +57,37 @@ function fixedminhotelpagedate(){
 // SAVING INPUT DATA TO LOCAL MEMORY TO ACCESS ON HOTEL HTML FILE
 
 function getinputdetails(){
+  
    let location = document.getElementById("roomlocation").value;
-   localStorage.setItem("hotel-location",location);
-   localStorage.setItem("mindate",mindatehome.value);
-   localStorage.setItem("maxdate",maxdatehome.value);
-   localStorage.setItem("guest",guesthome.value);
+   // Checking if input are correct or not
+   if(location.value !="" && mindatehome.value !="" && maxdatehome.value !=""&& guesthome.value !=""){
+      // saving input values from homepage to local storage
+      localStorage.setItem("hotel-location",location);
+      localStorage.setItem("mindate",mindatehome.value);
+      localStorage.setItem("maxdate",maxdatehome.value);
+      localStorage.setItem("guest",guesthome.value);
+
+      // taking anchor tag reference to linked hotel html file
+      let anchortag = document.getElementById("homeanchortag");
+      anchortag.setAttribute("href","./hotels.html");
+      // let imgtag = document.getElementById("homepagelink");
+      // anchortag.appendChild(imgtag);
+   }
+   else{
+      alert("Pleast input all the values before checking available hotel list");
+   }
+   
 }
-
-
-// LOADING HOTEL DATA ON HOTEL HTML PAGE MAIN FUNCTION
-
+// 
+// 
+// 
+// 
+// 
+//   BELOW IS THE FUNCTION WHICH RUNS WHEN NAVIGATING FROM HOME PAGE
+//   TO HOTEL PAGE
+// 
+// 
+// 
 function hoteldataload(){
 
    // Getting data from local memory
@@ -62,12 +101,13 @@ function hoteldataload(){
    checkoutnew.value = todatedata;
    guestnew.value = guestdata;
    
+   
    // API DETAILS OF AIRBNB CLONE
    const url = `https://airbnb13.p.rapidapi.com/search-location?location=${location1.value}&checkin=${checkinnew.value}&checkout=${checkoutnew.value}&adults=${guestnew.value}&children=0&infants=0&pets=0&page=1&currency=USD`;
    const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'dad6ff3c41msh90f2898c626adacp1c9baejsn1d933e89f927',
+		'X-RapidAPI-Key': '9715c91b6fmsh5f124dd6e978356p1a4387jsn876de12368b6',
 		'X-RapidAPI-Host': 'airbnb13.p.rapidapi.com'
 	}
 };
@@ -89,12 +129,35 @@ airbnbapi();
 
 function hotellist(hoteldata){
  
+   actualdata = hoteldata;
+
    hoteldiv.innerHTML=" ";
-   
-   hoteldata.forEach((house)=>{
-   
+   //  adding heading tag before loading hotel list
+    let hotelnos = hoteldata.length;
+
+   // variable for google maps details 
+    centerhotel = hotelnos/2;
+    centerlat = hoteldata[centerhotel].lat;
+    centerlong = hoteldata[centerhotel].lng;
+
+
+    let heading3 = document.createElement("h3");
+    heading3.textContent=`${hotelnos}+ stays in ${locationdata}`;
+    hoteldiv.appendChild(heading3);
+
+    let hotelrating ="";
+   hoteldata.forEach((house,i)=>{
+     
        let div = document.createElement("div");
        div.setAttribute("class","hotel");
+
+       //   just checking whether the hotel have any rating or not before loading
+       if(house.reviewsCount==0 || !house.rating){
+         hotelrating ="5";
+       }
+       else{
+         hotelrating = house.rating;
+       }
 
        div.innerHTML=`
        <div class="hotelthumbnail">
@@ -114,21 +177,34 @@ function hotellist(hoteldata){
              </div>
            </div>
        
-         <div class="roomdetails">
-            <img src="./Hotel image/Divider.svg">
-            <p><span>${house.persons} guests</span>·<span>${house.bedrooms} Bedrooms</span>·<span>${house.beds} Beds</span>·<span>${house.bathrooms} Bathroom</span></p>
-            <p><span>${house.type}</span>·<span>${house.previewAmenities[0]}</span>·<span>${house.previewAmenities[1]}</span></p>
-            <img src="./Hotel image/Divider.svg">
-         </div>
+           <div class="roomdetails">
+              <div>
+                <img src="./Hotel image/Divider.svg">
+                <p><span>${house.persons} guests</span>·<span>${house.bedrooms} Bedrooms</span>·<span>${house.beds} Beds</span>·<span>${house.bathrooms} Bathroom</span></p>
+                <p><span>${house.type}</span>·<span>${house.previewAmenities[0]}</span>·<span>${house.previewAmenities[1]}</span></p>
+                <img src="./Hotel image/Divider.svg">
+              </div>
+              <div>
+                 <button onclick="openDirections(${i})">Get Directions</button>
+              </div>
+            </div>
          
          <div class="hotel-ratingdiv">
-            <p class="ratings"><span>${house.rating}</span><img src="./Hotel image/star.svg"><span>(${house.reviewsCount} reviews)</span></p>
-            <p class="price">$${house.price.rate}<span> /night</span></p>
+            <p class="ratings"><span>${hotelrating}</span><img src="./Hotel image/star.svg"><span>(${house.reviewsCount} reviews)</span></p>
+            <button id="breakprice" onclick="getbookingcostbrkdwn(${i})" class="price">$${house.price.rate}<span>/night</span></button>
          </div>
 
        </div>
        `
        hoteldiv.appendChild(div);
+
+      //  Adding maps marker details
+      if(centerhotel==i){
+         initMap(i);
+      }
+      else{
+         resthotelmaps(i);
+      }
    })
 }
 
@@ -149,11 +225,16 @@ function datedisplay(){
    let day2 = date2.getDate();
    let month2 = (months[date2.getMonth()]).slice(0,3);
    
-   let ans1 = `${day1} ${month1} - ${day2} ${month2} `;
-   console.log(ans1);
-   showbookedday.value = ans1;
+   if(month1==month2){
+      let ans1 = `${day1} - ${day2} ${month1} `;
+      showbookedday.value = ans1;
+   }
+   else{
+      let ans1 = `${day1} ${month1} - ${day2} ${month2}`;
+      showbookedday.value = ans1;
+   }
+   
 }
-
 
 // FUNCTION TO POP UP DATE INPUTS AT HOTEL HTML FILE
 
@@ -164,92 +245,146 @@ function datedivpopup(){
    let textdate = document.getElementById("bookingdays");
    textdate.style.display = "none";
 }
-
-
-
-// FUNCTION TO DISPLAY HOTEL LIST WHILE SEARCHING ON HOTEL HTML PAGE
-
+// 
+// 
+// 
+// 
+// 
+//  FUNCTION TO DISPLAY HOTEL LIST WHILE SEARCHING ON HOTEL HTML PAGE
+// 
+// 
+// 
+//
 function getsearchhotels(){
-  let inp1 = location1.value;
-  let inp2 = checkinnew.value;
-  let inp3 = checkoutnew.value;
-  let inp4 = guestnew.value;
 
-   // API DETAILS OF AIRBNB CLONE
-   const url = `https://airbnb13.p.rapidapi.com/search-location?location=${inp1}&checkin=${inp2}&checkout=${inp3}&adults=${inp4}&children=0&infants=0&pets=0&page=1&currency=USD`;
-   const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'dad6ff3c41msh90f2898c626adacp1c9baejsn1d933e89f927',
+   let inp1 = location1.value;
+   let inp2 = checkinnew.value;
+   let inp3 = checkoutnew.value;
+   let inp4 = guestnew.value;
+ 
+    // API DETAILS OF AIRBNB CLONE
+    const url = `https://airbnb13.p.rapidapi.com/search-location?location=${inp1}&checkin=${inp2}&checkout=${inp3}&adults=${inp4}&children=0&infants=0&pets=0&page=1&currency=USD`;
+    const options = {
+    method: 'GET',
+    headers: {
+		'X-RapidAPI-Key': '9715c91b6fmsh5f124dd6e978356p1a4387jsn876de12368b6',
 		'X-RapidAPI-Host': 'airbnb13.p.rapidapi.com'
 	}
-};
-
-async function airbnbapi(){
-try {
-	const response = await fetch(url, options);
-	const result = await response.json();
-	 console.log(result.results);
-    // Calling function from promise
-    hotellist(result.results);
-    } catch (error) {
-	console.error(error);
-}
-
-}
-
-// airbnbapi();
-
-function hotellist(hoteldata){
+ };
  
-   hoteldiv.innerHTML=" ";
+ async function airbnbapi(){
+ try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+     console.log(result.results);
+     // Calling function from promise
+     hotellist(result.results);
+     } catch (error) {
+    console.error(error);
+ }
+ 
+ }
+ 
+ airbnbapi();
+ 
+ function hotellist(hoteldata){
+
+   actualdata = hoteldata;
    
-   hoteldata.forEach((house)=>{
-   
-       let div = document.createElement("div");
-       div.setAttribute("class","hotel");
 
-       div.innerHTML=`
-       <div class="hotelthumbnail">
-         <img src=${house.images[0]} alt="Hotel Photo loading">
-       </div>
+    hoteldiv.innerHTML=" ";
+   //  adding heading tag before loading hotel list
+    let hotelnos = hoteldata.length;
+    
+    // variable for google maps details 
+    centerhotel = hotelnos/2;
+    centerlat = hoteldata[centerhotel].lat;
+    centerlong = hoteldata[centerhotel].lng;
 
-       <div class="hoteldetails">
 
-          <div class="hotel-part1">
-            <div>
-                <p class="subhotelheading">${house.city}</p>
-                <h1>${house.name}</h1>
-                <p class="subhotelheading">Location: ${house.address}</p>
+    let heading3 = document.createElement("h3");
+    heading3.textContent=`${hotelnos}+ stays in ${inp1}`;
+    hoteldiv.appendChild(heading3);
+
+    let hotelrating ="";
+    hoteldata.forEach((house,i)=>{
+       
+        let div = document.createElement("div");
+        div.setAttribute("class","hotel");
+         
+      //   just checking whether the hotel have any rating or not before loading
+        if(house.reviewsCount==0 || !house.rating){
+         hotelrating ="5";
+       }
+       else{
+         hotelrating = house.rating;
+       }
+
+        div.innerHTML=`
+        <div class="hotelthumbnail">
+          <img src=${house.images[0]} alt="Hotel Photo loading">
+        </div>
+ 
+        <div class="hoteldetails">
+ 
+           <div class="hotel-part1">
+             <div>
+                 <p class="subhotelheading">${house.city}</p>
+                 <h1>${house.name}</h1>
+                 <p class="subhotelheading">Location: ${house.address}</p>
+              </div>
+              <div>
+                 <img src="./Hotel image/heart.svg">
+              </div>
+            </div>
+        
+          <div class="roomdetails">
+             <div>
+               <img src="./Hotel image/Divider.svg">
+               <p><span>${house.persons} guests</span>·<span>${house.bedrooms} Bedrooms</span>·<span>${house.beds} Beds</span>·<span>${house.bathrooms} Bathroom</span></p>
+               <p><span>${house.type}</span>·<span>${house.previewAmenities[0]}</span>·<span>${house.previewAmenities[1]}</span></p>
+               <img src="./Hotel image/Divider.svg">
              </div>
              <div>
-                <img src="./Hotel image/heart.svg">
+                <button onclick="openDirections(${i})">Get Directions</button>
              </div>
-           </div>
-       
-         <div class="roomdetails">
-            <img src="./Hotel image/Divider.svg">
-            <p><span>${house.persons} guests</span>·<span>${house.bedrooms} Bedrooms</span>·<span>${house.beds} Beds</span>·<span>${house.bathrooms} Bathroom</span></p>
-            <p><span>${house.type}</span>·<span>${house.previewAmenities[0]}</span>·<span>${house.previewAmenities[1]}</span></p>
-            <img src="./Hotel image/Divider.svg">
-         </div>
-         
-         <div class="hotel-ratingdiv">
-            <p class="ratings"><span>${house.rating}</span><img src="./Hotel image/star.svg"><span>(${house.reviewsCount} reviews)</span></p>
-            <p class="price">$${house.price.rate}<span>/night</span></p>
-         </div>
+          </div>
+          
+          <div class="hotel-ratingdiv">
+             <p class="ratings"><span>${hotelrating}</span><img src="./Hotel image/star.svg"><span>(${house.reviewsCount} reviews)</span></p>
+             <button id="breakprice" onclick="getbookingcostbrkdwn(${i})" class="price">$${house.price.rate}<span>/night</span></button>
+          </div>
+ 
+        </div>
+        `
+        hoteldiv.appendChild(div);
 
-       </div>
-       `
-       hoteldiv.appendChild(div);
-   })
-}
+      // Adding Maps marker of every hotel to googlemaps
+      //   if(centerhotel==i){
+      //      initMap(i);
+      //   }
+      //   else{
+      //    new google.maps.Marker({
+      //       position: {lat: actualdata[i].lat, lng: actualdata[i].lng},
+      //       map: map,
+      //       title: "Hello World!",
+      //     });
+      //   }
+      if(centerhotel==i){
+         initMap(i);
+      }
+      else{
+         resthotelmaps(i);
+      }
+    })
+ }
+ 
+    let maindatediv = document.getElementById("hiddendatediv");
+    maindatediv.style.display="none";
+ 
+    datedisplay();
+    let textdate = document.getElementById("bookingdays");
+    textdate.style.display = "block";
 
-   let maindatediv = document.getElementById("hiddendatediv");
-   maindatediv.style.display="none";
-
-   datedisplay();
-   let textdate = document.getElementById("bookingdays");
-   textdate.style.display = "block";
-
+    getLocation();
 }

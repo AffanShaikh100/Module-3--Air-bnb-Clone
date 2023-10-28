@@ -12,6 +12,7 @@ body{
 
 header{
     position: sticky;
+    z-index: 1000;
     top: 0px;
     border-bottom: 1px solid var(--gray-500, #E5E7EB);
     padding-bottom: 20px;
@@ -40,7 +41,8 @@ nav{
     color: var(--black, #000);
     font-size: 14px;
     font-weight: 600;
-    width:100px
+    width:100px;
+    text-align: center;
 }
 .navpart2>span{
     height: 32px;
@@ -149,17 +151,33 @@ nav>div>input{
     align-items: center;
 }
 
+/* MAIN HOTEL DIV CSS */
+.mainhoteldiv{
+    display: flex;
+    flex-direction: row;
+}
+
 /* HOTEL LIST CSS STARTS FROM HERE */
 
 #hotel-list{
-   margin: 40px;
+   margin-left: 40px;
+   margin-right: 30px;
+   height: 66vh;
+   overflow-y: scroll;
 }
-/* #hotel-list>h3{
-    margin: 30px 20px;
+
+#hotel-list::-webkit-scrollbar{
+    display: none;
+}
+
+#hotel-list>h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
     color: var(--gray-500, #6B7280);
     font-size: 16px;
     font-weight: 400;
-} */
+}
+
 .hotel{
   width: 60vw;
   display: flex;
@@ -168,6 +186,9 @@ nav>div>input{
   padding-bottom: 40px;
   border-top: 2px solid  #E5E7EB;
 }
+/* .hotel:hover{
+    background-color: rgb(0, 0, 0, 0.1);
+} */
 .hotelthumbnail>img{
   border-radius: 12px;
   width: 22vw;
@@ -190,21 +211,44 @@ nav>div>input{
     margin: 6px 0px;
 }
 .hotel-part1>div>img{
-    /* margin-left: 13vw; */
+    margin-right: 10px;
 }
+
 .subhotelheading{
     color: var(--gray-500, #6B7280);
     font-size: 14px;
     font-weight: 400;
 }
-
-.roomdetails>p{
+.roomdetails{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.roomdetails>div>button{
+    text-align: center;
+    border: none;
+    padding: 10px 7px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 1px 1px 0px rgba(31, 41, 55, 0.10), 0px 2px 4px 0px rgba(31, 41, 55, 0.06);
+    color: var(--gray-700, #374151);
+    font-size: 16px;
+    font-weight: 500;
+}
+.roomdetails>div>button:hover{
+    background-color: #DE3151 ;
+    color: black;
+    scale: 1.04;
+    cursor: pointer;
+}
+.roomdetails>div>p{
     margin-top: 10px;
     color: var(--gray-500, #6B7280);
     font-size: 14px;
     font-weight: 400;
 }
-.roomdetails>p>span{
+.roomdetails>div>p>span{
     margin-inline: 5px;
 }
 .hotel-ratingdiv{
@@ -227,11 +271,31 @@ nav>div>input{
     color: var(--gray-700, #374151);
     font-size: 18px;
     font-weight: 500;
+    margin-right: 10px;
+    padding: 9px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 1px 1px 0px rgba(31, 41, 55, 0.10), 0px 2px 4px 0px rgba(31, 41, 55, 0.06);
 }
+.price:hover{
+    background-color: #DE3151 ;
+    color: black;
+    scale: 1.04;
+    cursor: pointer;
+}
+
 .price>span{
     color: var(--gray-700, #374151);
     font-size: 14px;
     font-weight: 400;
+}
+
+/* GOOGLE MAPS DIV STARTS FROM HERE */
+#mapsdiv{
+    width: 34vw;
+    /* margin-top: 3px; */
+    height: 70vh;
 }
 
 
@@ -281,7 +345,6 @@ nav>div>input{
     width: 20vw;
     margin-right: 2vw;
 }
-
 
 .placelocation>div>p{
     text-align: left;

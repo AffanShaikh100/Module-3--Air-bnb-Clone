@@ -96,7 +96,7 @@ header{
 .navigationpart2>span{
     height: 32px;
     border-right: 2px solid var(--gray-500, #E5E7EB);
-    margin-right: 27px;
+    margin-right: 30px;
 }
 
   /* Hiding the border of input tags */
@@ -104,7 +104,14 @@ header{
     border: none;
 }
 .dateinput{
+    display: none;
     color: var(--gray-500, #6B7280)
+}
+#homedatetext1{
+    width: 110px;
+}
+#homedatetext2{
+    width: 110px;
 }
 .navsearch>a>input{
     border: none;

@@ -6,6 +6,7 @@
     <title>Holiday Home Listing</title>
     <!-- Linking to CSS FILE -->
     <link rel="stylesheet" href="./hotels.css">
+    <link rel="stylesheet" href="./hotellist-funct.css">
     <!-- ADDING FONT FAMILY INTER -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,7 @@
             </div>
 
             <div class="navpart2">
-                <input id="mainhotel-location" type="text" value="location">
+                <input onclick="datedivpopup()" id="mainhotel-location" type="text" value="Select">
                 <span></span>
 
                 <div onclick="datedivpopup()" class="navdatesdiv">
@@ -28,7 +29,7 @@
                         <input type="date" id="checkindate">
                         <input type="date" id="checkoutdate">
                     </div>
-                    <input type="text" id="bookingdays" value="Booked">
+                    <input type="text" id="bookingdays" value="Select">
                 </div>
                 <span></span>
 
@@ -64,42 +65,20 @@
     </header>
 
    <main>
-       <div id="hotel-list">
-        
-            <!-- <h3>
-                <span id="totalhotelnos"></span>Please wait for list to load
-            </h3> -->
+       
+    
+       <div class="mainhoteldiv" id="mainhotelbodydiv">
+         
+          <div id="hotel-list">
 
-            <!-- <div class="hotel">
-                <div class="hotelthumbnail">
-                    <img src="./Hotel image/Image.png" alt="Hotel Photo loading">
-                </div>
-                <div class="hoteldetails">
-                     <div class="hotel-part1">
-                         <div>
-                            <p class="subhotelheading">Paris</p>
-                            <h1>Room in the heart of Paris</h1>
-                            <p class="subhotelheading">Location: Châtelet - Les Halles - Beaubourg</p>    
-                         </div>
-                         <div>
-                            <img src="./Hotel image/heart.svg">
-                         </div>
-                     </div>
-                    
-                    <div class="roomdetails">
-                        <img src="./Hotel image/Divider.svg">
-                        <p><span>2 guests</span>·<span>Room in boutique hotel</span>·<span>1 Beds</span>·<span>1 Bathroom</span></p>
-                        <p><span>Wifi</span>·<span>Heating</span></p>
-                        <img src="./Hotel image/Divider.svg">
-                    </div>
-                   
-                    <div class="hotel-ratingdiv">
-                        <p class="ratings"><span>4.74</span><img src="./Hotel image/star.svg"><span>(77 reviews)</span></p>
-                        <p class="price">$456<span> /night</span></p>
-                    </div>
-                </div>
-            </div> -->
+          </div>
+
+          <div id="mapsdiv">
+
+          </div>
+
        </div>
+       
 
        <!-- PLACE SECTION STARTS FROM HERE -->
        <section>
@@ -246,5 +225,9 @@
 
     <!-- LINKING TO JS FILE -->
     <script src="./script.js"></script>
+    <script src="./hotelfunctionality.js"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAERvhT379yvR6PPLNQ8ax1C6P3b6z1ZYk&callback=initMap"></script> -->
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyC0No5bDMMGYqPqw6zsVph9Q8CULhWgH3E", v: "beta"});</script>
 </body>
 </html>
