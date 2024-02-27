@@ -206,6 +206,7 @@ function hotellist(hoteldata){
          resthotelmaps(i);
       }
    })
+   getLocation();
 }
 
 localStorage.clear();
